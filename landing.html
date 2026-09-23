@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- DEMO ONLY — standalone ads/DM-traffic landing page, single conversion path. Same notes as index.html. -->
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bathroom &amp; Reno Tiler Brisbane | Jay Sutherland Tiling</title>
+  <meta name="description" content="Bathroom and renovation tiling in Brisbane. Straight quotes, quality finish. Message on Instagram or request a quote." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #292420; --stone: #F4EEE6; --card: #FFFFFF;
+      --clay: #B5602E; --clay-dark: #96491F; --clay-glow: rgba(181,96,46,0.12);
+      --grey: #8A8078; --border: rgba(41,36,32,0.1); --radius: 14px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--stone); -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    h1, h2 { font-family: 'DM Serif Display', serif; font-weight: 400; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 15px 30px; border-radius: 100px; font-size: 15px; font-weight: 700; cursor: pointer; border: none; transition: all 0.2s ease; white-space: nowrap; font-family: 'Inter', sans-serif; }
+    .btn-clay { background: var(--clay); color: #fff; }
+    .btn-clay:hover { background: var(--clay-dark); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(150,73,31,0.3); }
+    .btn svg { width: 17px; height: 17px; flex-shrink: 0; }
+
+    #header { position: sticky; top: 0; z-index: 100; background: rgba(244,238,230,0.9); border-bottom: 1px solid var(--border); backdrop-filter: blur(10px); padding: 16px 0; }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; }
+    .logo-name { font-family: 'DM Serif Display', serif; font-size: 19px; }
+    .logo-name span { color: var(--clay); }
+
+    #hero {
+      position: relative; overflow: hidden;
+      background:
+        linear-gradient(100deg, rgba(28,23,19,0.90) 0%, rgba(28,23,19,0.72) 45%, rgba(28,23,19,0.25) 100%),
+        url('images/marble-bathroom.jpg');
+      background-size: cover;
+      background-position: center 25%;
+      padding: 60px 0 70px;
+    }
+    .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 52px; align-items: center; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.25); border-radius: 100px; padding: 6px 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #F0C4A0; margin-bottom: 20px; background: rgba(0,0,0,0.25); }
+    .hero-eyebrow span { width: 6px; height: 6px; background: var(--clay); border-radius: 50%; }
+    .hero-title { font-size: clamp(32px, 4.6vw, 48px); line-height: 1.1; margin-bottom: 18px; color: #fff; }
+    .hero-title .accent { color: #E8935F; font-style: italic; }
+    .hero-sub { font-size: 16.5px; color: rgba(255,255,255,0.78); line-height: 1.7; margin-bottom: 26px; max-width: 460px; }
+    .hero-points { display: flex; flex-direction: column; gap: 11px; margin-bottom: 4px; }
+    .hero-point { display: flex; align-items: center; gap: 9px; font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,0.9); }
+    .hero-point svg { color: var(--clay); flex-shrink: 0; }
+    .hero-photo-credit { grid-column: 1 / -1; font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 4px; }
+
+    /* Estimator — same free-value lead magnet as the main site's hero (not a
+       generic "Get a Quote" form). Email-gated instant price estimate. */
+    .estimate-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; position: relative; overflow: hidden; box-shadow: 0 24px 50px -18px rgba(41,36,32,0.3); }
+    .estimate-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--clay); }
+    .est-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay-dark); background: var(--clay-glow); padding: 6px 12px; border-radius: 100px; margin-bottom: 16px; }
+    .estimate-card h3 { font-family: 'Inter', sans-serif; font-size: 19px; font-weight: 800; margin-bottom: 4px; }
+    .est-sub { font-size: 13px; color: var(--grey); margin-bottom: 20px; }
+    .est-type-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 22px; }
+    .est-option { border: 1.5px solid var(--border); border-radius: 12px; padding: 12px 8px; text-align: center; font-size: 12.5px; font-weight: 700; cursor: pointer; transition: all 0.15s; }
+    .est-option small { display: block; font-weight: 500; color: var(--grey); font-size: 10.5px; margin-top: 4px; }
+    .est-option.active { border-color: var(--clay); background: var(--clay-glow); color: var(--clay-dark); }
+    .est-option.active small { color: var(--clay-dark); }
+    .est-area-row { margin-bottom: 20px; }
+    .est-area-row label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+    .est-area-row input[type="range"] { width: 100%; accent-color: var(--clay); }
+    .est-result { background: var(--stone); border-radius: 14px; padding: 18px; text-align: center; margin-bottom: 14px; position: relative; overflow: hidden; }
+    .est-price-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey); margin-bottom: 6px; }
+    .est-price { font-family: 'DM Serif Display', serif; font-size: 28px; color: var(--ink); transition: filter 0.3s; }
+    .est-price.locked { filter: blur(9px); user-select: none; }
+    .est-disclaimer { font-size: 11.5px; color: var(--grey); text-align: center; margin-bottom: 18px; }
+    .est-disclaimer b { color: var(--ink); }
+    .est-gate { position: absolute; inset: 0; background: rgba(244,238,230,0.94); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 12px; }
+    .est-gate p { font-size: 12px; font-weight: 700; color: var(--ink); text-align: center; }
+    .est-gate-row { display: flex; gap: 6px; width: 100%; max-width: 280px; }
+    .est-gate-row input { flex: 1; min-width: 0; padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border); font-family: 'Inter', sans-serif; font-size: 13px; outline: none; }
+    .est-gate-row input:focus { border-color: var(--clay); }
+    .est-gate-row button { padding: 9px 16px; font-size: 13px; white-space: nowrap; }
+    .est-gate.unlocked { display: none; }
+
+    #why-strip { background: var(--ink); padding: 16px 0; }
+    .why-strip-inner { display: flex; justify-content: center; flex-wrap: wrap; gap: 26px; }
+    .why-strip-item { display: flex; align-items: center; gap: 8px; color: var(--stone); font-size: 12.5px; font-weight: 700; }
+    .why-strip-item svg { color: var(--clay); flex-shrink: 0; }
+
+    #closing { padding: 68px 0 84px; text-align: center; }
+    #closing h2 { font-size: clamp(24px, 3.2vw, 34px); margin-bottom: 12px; }
+    #closing p { font-size: 15px; color: var(--grey); margin-bottom: 24px; }
+
+    #footer { border-top: 1px solid var(--border); padding: 24px 0; text-align: center; font-size: 12px; color: var(--grey); }
+    #footer a { color: var(--grey); }
+
+    @media (max-width: 900px) { .hero-inner { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .why-strip-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; } }
+    @media (max-width: 768px) { .form-group input, .form-group select, .form-group textarea { font-size: 16px; } }
+  </style>
+</head>
+<body>
+
+  <header id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo-name">Jay Sutherland <span>Tiling</span></a>
+      <a href="https://instagram.com/its_your_boy_jay91" target="_blank" rel="noopener" class="btn btn-clay">Message on Instagram</a>
+    </div>
+  </header>
+
+  <section id="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="hero-eyebrow"><span></span>Bathroom &amp; Reno Tiler · Brisbane</div>
+        <h1 class="hero-title">A Bathroom Retile <span class="accent">Done Properly,</span> Start to Finish.</h1>
+        <p class="hero-sub">Jay tiles bathrooms and renovations across Brisbane — straight quotes, no vanishing acts, and a finish that holds up.</p>
+        <div class="hero-points">
+          <div class="hero-point"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Honest, upfront quotes</div>
+          <div class="hero-point"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Bathrooms, renos &amp; general tiling</div>
+          <div class="hero-point"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Brisbane-based, local jobs</div>
+        </div>
+
+      </div>
+
+      <div class="estimate-card">
+        <span class="est-badge">⚡ Instant Estimate</span>
+        <h3>Get Your Free Price Estimate</h3>
+        <p class="est-sub">Move the slider to match your space.</p>
+        <div class="est-type-grid">
+          <div class="est-option active" data-type="bathroom">Bathroom Reno<small>$110–150/m²</small></div>
+          <div class="est-option" data-type="floor">Floor Tiling<small>$65–95/m²</small></div>
+          <div class="est-option" data-type="wall">Wall / Splashback<small>$85–120/m²</small></div>
+        </div>
+        <div class="est-area-row">
+          <label>Approx. area <b id="est-area-val">8m²</b></label>
+          <input type="range" id="est-area" min="2" max="30" value="8" step="1" />
+        </div>
+        <div class="est-result">
+          <div class="est-price-label">Estimated Price Range</div>
+          <div class="est-price locked" id="est-price">$880 – $1,200</div>
+          <div class="est-gate" id="est-gate">
+            <p>Enter your email to reveal your price</p>
+            <div class="est-gate-row">
+              <input type="email" id="est-email" placeholder="you@email.com" />
+              <button type="button" id="est-unlock" class="btn btn-clay">Unlock</button>
+            </div>
+          </div>
+        </div>
+        <p class="est-disclaimer"><b>Ballpark only</b> — tile choice, prep work, and site access all affect the final price.</p>
+        <a href="https://instagram.com/its_your_boy_jay91" target="_blank" rel="noopener" class="btn btn-clay" style="width:100%;justify-content:center;">Get My Exact Quote</a>
+      </div>
+      <p class="hero-photo-credit">Reference photo shown for finish and style — not Jay's own completed work.</p>
+    </div>
+  </section>
+
+  <div id="why-strip">
+    <div class="container why-strip-inner">
+      <div class="why-strip-item"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Reliable</div>
+      <div class="why-strip-item"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Straight Pricing</div>
+      <div class="why-strip-item"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Quality Finish</div>
+      <div class="why-strip-item"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Local, Brisbane-Based</div>
+    </div>
+  </div>
+
+  <section id="closing">
+    <div class="container">
+      <h2>Got a bathroom or reno job coming up?</h2>
+      <p>Send a message — takes two minutes.</p>
+      <a href="https://instagram.com/its_your_boy_jay91" target="_blank" rel="noopener" class="btn btn-clay">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Message @its_your_boy_jay91
+      </a>
+    </div>
+  </section>
+
+  <footer id="footer">
+    <div class="container">&copy; 2026 Jay Sutherland Tiling · <a href="index.html">Back to full site</a></div>
+  </footer>
+
+  <script>
+    // Tiling cost estimator — same static per-m² formula as the main site, ballpark only
+    const estCard = document.querySelector('.estimate-card');
+    if (estCard) {
+      const rates = {
+        bathroom: { low: 110, high: 150 },
+        floor: { low: 65, high: 95 },
+        wall: { low: 85, high: 120 },
+      };
+      let currentType = 'bathroom';
+      const options = estCard.querySelectorAll('.est-option');
+      const areaInput = estCard.querySelector('#est-area');
+      const areaVal = estCard.querySelector('#est-area-val');
+      const priceEl = estCard.querySelector('.est-price');
+
+      function calc() {
+        const area = parseInt(areaInput.value, 10);
+        const r = rates[currentType];
+        const low = Math.round((r.low * area) / 10) * 10;
+        const high = Math.round((r.high * area) / 10) * 10;
+        priceEl.style.opacity = 0;
+        setTimeout(() => {
+          priceEl.textContent = `$${low.toLocaleString()} – $${high.toLocaleString()}`;
+          priceEl.style.opacity = 1;
+        }, 120);
+        areaVal.textContent = area + 'm²';
+      }
+
+      options.forEach((opt) => {
+        opt.addEventListener('click', () => {
+          options.forEach((o) => o.classList.remove('active'));
+          opt.classList.add('active');
+          currentType = opt.dataset.type;
+          calc();
+        });
+      });
+      areaInput.addEventListener('input', calc);
+      calc();
+
+      // Email gate — the hero's lead magnet. DEMO ONLY: unlocks client-side,
+      // no real email is captured or sent anywhere.
+      const gate = estCard.querySelector('#est-gate');
+      const emailInput = estCard.querySelector('#est-email');
+      const unlockBtn = estCard.querySelector('#est-unlock');
+      function unlock() {
+        const email = emailInput.value.trim();
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          emailInput.style.borderColor = '#c0392b';
+          return;
+        }
+        priceEl.classList.remove('locked');
+        gate.classList.add('unlocked');
+      }
+      unlockBtn.addEventListener('click', unlock);
+      emailInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') unlock(); });
+      emailInput.addEventListener('input', () => { emailInput.style.borderColor = ''; });
+    }
+  </script>
+</body>
+</html>
